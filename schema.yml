@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: FOOD_BACK
+  version: 0.0.0
+paths:
+  /:
+    post:
+      operationId: root_create
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                description: Success
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                description: Bad request
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                description: Not found
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                description: Internal server error
+          description: ''
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
